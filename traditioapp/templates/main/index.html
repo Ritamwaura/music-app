@@ -1,0 +1,97 @@
+{% extends 'main/base.html' %} {% load static %} {% block content %}
+<div>
+    <div class="row">
+        <header>
+            <div class="col-md-7">
+                <nav class="navbar-default pull-left">
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle collapsed" data-toggle="offcanvas" data-target="#side-menu" aria-expanded="false">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                    </div>
+                </nav>
+                <div class="search hidden-xs hidden-sm">
+                    <form action="{% url 'search_results' %}" method="post" enctype="multipart/form-data" novalidate>
+                        {% csrf_token %}
+                        <input type="text" placeholder="Search" id="search" name="search">
+                    </form>
+                </div>
+            </div>
+            <div class="col-md-5">
+                <div class="header-rightside">
+                    <ul class="list-inline header-top pull-right">
+                        <li class="hidden-xs"><a href="{% url 'add_post' %}" class="add-project">Create Post</a></li>
+                        <li class="hidden-xs"><a href="{% url 'logout' %}" class="ad-project">Log Out</a></li>
+                        <li><a href="#"><i class="fa fa-envelope" aria-hidden="true"></i></a></li>
+                        <li>
+                            <a href="#" class="icon-info">
+                                <i class="fa fa-bell" aria-hidden="true"></i>
+                                <span class="label label-primary">6</span>
+                            </a>
+                        </li>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown"><img src="{{user.profile.profile_pic.url}}" alt="{{user.profile.name}}" style="height:35px; width:35px;">
+                                <b class="caret"></b></a>
+                            <ul class="dropdown-menu">
+                                <li>
+                                    <div class="navbar-content">
+                                        <span>{{user.profile.name}}</span>
+                                        <p class="text-muted small">
+                                            {{user.profile.name}}@mail.com
+                                        </p>
+                                        <div class="divider">
+                                        </div>
+                                        <a href="{% url 'profile' user.profile.name%}" class="view btn-sm active">View Profile</a>
+                                    </div>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </header>
+    </div>
+    <div class="container-fluid">
+        <div class="class">
+            <h1 class="ml-3">Traditon</h1>
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ-0f1KCTbBPCWX6uk7AWCpC0PlI4bbynIIv-IdRvwB-CEP0vo74Q&s" alt="" style="width: 100%;height: 100%;">
+
+        </div>
+        <!-- {% for trad in trad %} --
+                <div class="col-sm-6 col-md-3 " style="height:200px; ">
+                    <div class="card text-white bg-info mb-3 " style="max-width:18rem; ">
+                        <div class="card-header ">{{trad.name}}</div>
+                        <div class="card-body ">
+                            <img src="{{ trad.user.image.url}} " class="card-img " alt="{{trad.name}} ">
+                        </div> -->
+        <!-- </div>
+                </div>
+
+
+                {% endfor %}
+            </div>
+            <h1 class="ml-3 ">Posts</h1>
+            <div class="col-sm-12 ">
+                {% for post in posts %}
+                <div class="col-sm-6 col-md-3 ">
+                    <div class="card text-white bg-success mb-3 " style="max-width: 18rem; ">
+                        <div class="card-header ">
+                            <h4 class=" ">{{post.title}}</h4>
+                        </div>
+                        <div class="card-body ">
+                            <h5 class="ml-2 ">{{post.content}}</h5>
+                        </div>
+                        <div>
+                            <div class=" card-text ml-3 mt-2 ">{
+                                <img src="{post.user.trad.image.url}} " alt=" "></div>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</div> -->{% endblock %}

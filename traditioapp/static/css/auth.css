@@ -1,0 +1,12 @@
+.form-text {
+    display: none;
+}
+
+.overlay,
+.container {
+    margin: 0px;
+}
+
+.overlay {
+    background-color: rgba(0, 0, 0, 0.5);
+}

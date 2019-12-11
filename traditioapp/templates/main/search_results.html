@@ -1,0 +1,28 @@
+{% extends 'main/base.html' %} {% block content %}
+<div class="container">
+    <div class="row card-columns">
+        {% if searched_photos %}
+        <section class="gallery py-5" id="gallery">
+            <div class="container">
+                <div class="inner-sec-wthree py-lg-5 py-3">
+                    <div class="text-center">
+                        <h3 class="tittle_head">Search Results</h3>
+                        {% if searched_photos %}
+                        <p class="main_p mt-4 mb-4 pt-2 text-center mx-auto">Found {{searched_photos | length}} photos for search {{message}}.</p> {% else %}
+                        <p class="main_p mt-4 mb-4 pt-2 text-center mx-auto">Found {{searched_photos | length}} photos for search {{message}}</p> {% endif %}
+                    </div>
+                    <div class="row news-grids mt-lg-5 mt-4 text-center">
+                        {% for photo in searched_photos %}
+                        <div class="col-md-4 gal-img">
+                            <a href="#gal1">
+                                <img src="{{photo.image.url}}" alt="gallery img" class="img-fluid"> </a>
+                        </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </section>
+        {% endif %}
+    </div>
+</div>
+{% endblock %}

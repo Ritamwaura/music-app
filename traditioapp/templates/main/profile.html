@@ -1,0 +1,15 @@
+{% extends 'main/base.html' %} {% block content %}
+<div class="">
+    <div class="row d-block mx-auto">
+        <div class="col-md-3"></div>
+        <div class="col-md-2 mt-4">
+            <img class="rounded-circle account-img d-block mx-auto" src="{{user.profile.profile_pic.url}}" height="125px" width="125px">
+            <h5 class="text-center mt-3">{{user.username}}</h5>
+        </div>
+    </div>
+    <a href="{% url 'edit_profile' user.profile.name%}">
+        <button class="btn d-block mx-auto">Edit Profile</button>
+    </a>
+
+</div>
+{% endblock %}

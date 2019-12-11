@@ -1,0 +1,22 @@
+{%extends 'main/base.html' %} {%load crispy_forms_tags %} {% block content %}
+<div class="d-block mx-auto mt-5">
+    <img src="https://i.ytimg.com/vi/EWYtUtbfvZc/maxresdefault.jpg" alt="">
+    <!-- <h3 class="text-center">Add a Post</h3>
+    <div class="mr-4 ml-4">
+        <div class="d-block mx-auto mt-5"> -->
+    <h3 class="text-center">Add a Post</h3>
+    <div class="mr-4 ml-4">
+        <form action="" method="post" enctype="multipart/form-data" novalidate>
+            {% csrf_token %} {{form|crispy}}
+            <button class="d-block mx-auto btn btn-success">Add Post</button>
+        </form>
+    </div>
+</div>
+
+<!-- <form action="" method="post">
+            {% csrf_token %} {{form|crispy}}
+            <button class="d-block mx-auto btn btn-success">Add Post</button>
+        </form>
+    </div> -->
+</div>
+{% endblock %}

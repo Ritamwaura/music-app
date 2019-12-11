@@ -1,0 +1,111 @@
+{%load static %}
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    {%block styles %}
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
+    <!-- Bootstrap core CSS -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Material Design Bootstrap -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.8.10/css/mdb.min.css" rel="stylesheet">
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+    <!------ Include the above in your HEAD tag ---------->
+
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-T8Gy5hrqNKT+hzMclPo118YTQO6cYprQmhrYwIiQ/3axmI1hQomh7Ud2hPOy8SP1" crossorigin="anonymous">
+    <link rel="stylesheet" href="{% static 'css/nav.css' %}">
+    <link rel="stylesheet" href="{% static 'css/auth.css' %}">
+    <link rel="stylesheet" href="{% static 'css/index.css' %}"> {% endblock %}
+</head>
+
+<body class="home">
+    <div class="col-sm-12">
+        <div id="navigation" class="col-sm-2 hidden-xs l v-align box">
+            <div class="logo">
+                <a href="">
+                    <img src="{{user.profile.profile_pic.url}}" alt="{{user.profile.name}}" class="hidden-xs hidden-sm" style="height:80px; width:50px;">
+                    <img src="{{user.profile.profile_pic.url}}" alt="{{user.profile.name}}" class="visible-xs visible-sm circle-logo" style="height:60px; width:60px;">
+                </a>
+            </div>
+            <div class="navi">
+                <ul>
+                    <li class="active"><a href="/"><i class="fa fa-home" aria-hidden="true"></i><span
+                        class="hidden-xs hidden-sm">Home</span></a></li>
+                    <li><a href="{% url 'add_trad' %}"><i class="fa fa-tasks" aria-hidden="true"></i><span
+                        class="hidden-xs hidden-sm">Add Trad</span></a>
+                    </li>
+                    <li><a href="{% url 'add_song' %}"><i class="fa fa-bar-chart" aria-hidden="true"></i><span class="hidden-xs hidden-sm">Add Songs</span></a>
+                    </li>
+                    <li><a href="#"><i class="fa fa-user" aria-hidden="true"></i><span
+                        class="hidden-xs hidden-sm">Posts</span></a>
+                    </li>
+                    <li><a href="{% url 'add_latest' %}"><i class="fa fa-calendar" aria-hidden="true"></i><span
+                        class="hidden-xs hidden-sm">Latest</span></a>
+                    </li>
+                    <li><a href="{% url 'about' %}"><i class="fa fa-cog" aria-hidden="true"></i><span
+                        class="hidden-xs hidden-sm">About</span></a>
+                    </li>
+                    <li><br></li>
+                    <li><br></li>
+                    <li><br></li>
+                    <li><br></li>
+                    <li><br></li>
+                    <li><br></li>
+                    <li><br></li>
+                    <li><br></li>
+                    <li><br></li>
+                    <li class="mb-2"><br></li>
+                </ul>
+            </div>
+        </div>
+        <div class="col-sm-10">
+            {% block content %} {% endblock %}
+        </div>
+
+    </div>
+
+</body>
+{% block scripts %}
+<script src="{% static '/js/bootstrap.js'%}"></script>
+<script src="{% static '/js/nav.js'%}"></script>
+<!-- JQuery -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<!-- Bootstrap tooltips -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.4/umd/popper.min.js"></script>
+<!-- Bootstrap core JavaScript -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
+<!-- MDB core JavaScript -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.8.10/js/mdb.min.js"></script>
+
+<!-- Setting up firebase -->
+<!-- The core Firebase JS SDK is always required and must be listed first -->
+<script src="https://www.gstatic.com/firebasejs/7.2.2/firebase-app.js"></script>
+
+<!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+<script src="https://www.gstatic.com/firebasejs/7.2.2/firebase-analytics.js"></script>
+
+<script>
+    // Your web app's Firebase configuration
+    var firebaseConfig = {
+        apiKey: "AIzaSyA65s71Avicwf9FfXmsdK74vCHUtIiAuTg",
+        authDomain: "dash-ro.firebaseapp.com",
+        databaseURL: "https://dash-ro.firebaseio.com",
+        projectId: "dash-ro",
+        storageBucket: "dash-ro.appspot.com",
+        messagingSenderId: "482239371187",
+        appId: "1:482239371187:web:32580e6eddd0d2473fddc6",
+        measurementId: "G-LSYB4R1SK7"
+    };
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+    firebase.analytics();
+</script>
+{% endblock %}
+
+</html>
