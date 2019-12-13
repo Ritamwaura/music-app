@@ -28,10 +28,10 @@ either Sublime, Visual-Studio-Code or Atom.
   - ```cd your preferred directory``` => ```cd Desktop```
 
 ## Git clone the project on your current directory by:
-  - ```git clone https://github.com/Ritamwaura/nyumbakumi.git```.
+  - ```git clone https://github.com/Ritamwaura/music-app.git```.
 
 ## Move to your project directory:
-- ```cd Nyumbakumi```.
+- ```cd tradition```.
 
 ## Open the project on your terminal:
   - ```atom . or code .``` , according to the type of your text editor.
